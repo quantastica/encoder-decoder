@@ -23,7 +23,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="quantastica-encoder-decoder",
-    version="0.1.0",
+    version="0.1.1",
     description="Helper library for encoding classical data into quantum state and vice versa",
     long_description=README,
     long_description_content_type="text/markdown",

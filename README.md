@@ -22,7 +22,8 @@ Example:
 
 ```
 
-In this example, we have two columns: `a` with value `11` and `b` with value `14`.
+(in this example, we have two columns: `a` with value `11` and `b` with value `14`).
+
 
 `input_encoding` dictionary describing encoding scheme and column definitions.
 
@@ -34,7 +35,7 @@ Fields:
 
     - `custom` custom encoding, which expects you to provide encoding function
 
-- `customFunction.python` used with `custom` encoding. Your custom encoding function, which receives the same arguments as this `encode_data` function and returns OpenQASM 2.0 string.
+- `customFunction.python` used with `custom` encoding. Your custom encoding function, which receives the same arguments as this `encode_input` function and returns OpenQASM 2.0 string.
 
 - `qubitOffset` used by `basis` encoding. For example, if input data requires 8 bits to be encoded and qubitOffset is 3, then data will be encoded into qubits [3..10] (from fourth to eleventh qubit).
 
@@ -58,6 +59,8 @@ Fields:
 **Example for `basis` encoding:**
 
 ```python
+
+from quantastica.encoder_decoder import encode_input
 
 input_encoding = {
     "type": "basis",
@@ -111,6 +114,8 @@ x q[8];
 **Example for `custom` encoding:**
 
 ```python
+
+from quantastica.encoder_decoder import encode_input
 
 def custom_encoder(input_data_row, input_encoding):
     qasm = ""
@@ -174,7 +179,7 @@ Fields:
 
     - `custom` custom decoding, which expects you to provide decoding function
 
-- `customFunction.python` used with `custom` decoding. Your custom decoding function, which receives the same arguments as this `decode_data` function and returns data row as a dictionary.
+- `customFunction.python` used with `custom` decoding. Your custom decoding function, which receives the same arguments as this `decode_output` function and returns data row.
 
 - `qubitOffset` used by `basis` decoding. For example, if output data is 8 bits wide and qubitOffset is 3, then data will be decoded from qubits [3..10] (from fourth to eleventh qubit).
 
@@ -200,6 +205,8 @@ Fields:
 **Example for `basis` decoding:**
 
 ```python
+
+from quantastica.encoder_decoder import decode_output
 
 output_decoding = {
     "type": "basis",
@@ -234,6 +241,8 @@ Example output:
 **Example for `custom` decoding:**
 
 ```python
+
+from quantastica.encoder_decoder import decode_output
 
 def custom_decoder(counts, output_decoding):
     output_data_row = {}
