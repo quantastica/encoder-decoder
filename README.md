@@ -9,7 +9,7 @@ Function returns OpenQASM 2.0 code which prepares quantum state with input data 
 
 **Arguments:**
 
-`input_data_row` dictionary containing single row of data to be encoded into quantum state in form `{ "column_name": value, ... }`.
+`input_data_row` dictionary containing single row of data to be encoded into quantum state in a form `{ "column_name": value, ... }`.
 
 Example:
 
@@ -24,7 +24,7 @@ Example:
 
 In this example, we have two columns: `a` with value `11` and `b` with value `14`.
 
-`input_encoding` distionary describing encoding scheme and column definitions.
+`input_encoding` dictionary describing encoding scheme and column definitions.
 
 Fields:
 
